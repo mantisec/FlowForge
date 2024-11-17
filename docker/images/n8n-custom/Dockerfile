@@ -1,7 +1,7 @@
 ARG NODE_VERSION=20
 
 # 1. Create an image to build n8n
-FROM --platform=linux/amd64 n8nio/base:${NODE_VERSION} AS builder
+FROM --platform=linux/amd64 flowforge-base AS builder
 
 # Build the application from source
 WORKDIR /src
@@ -21,7 +21,7 @@ RUN mkdir /compiled
 RUN NODE_ENV=production DOCKER_BUILD=true pnpm --filter=n8n --prod --no-optional deploy /compiled
 
 # 2. Start with a new clean image with just the code that is needed to run n8n
-FROM n8nio/base:${NODE_VERSION}
+FROM flowforge-base
 ENV NODE_ENV=production
 
 ARG N8N_RELEASE_TYPE=dev
@@ -62,6 +62,8 @@ RUN \
 	ln -s /usr/local/lib/node_modules/n8n/bin/n8n /usr/local/bin/n8n && \
 	mkdir .n8n && \
 	chown node:node .n8n
+
+RUN apk add --no-cache --update openssh sudo shadow bash
 
 ENV SHELL /bin/sh
 USER node

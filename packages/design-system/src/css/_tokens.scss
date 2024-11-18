@@ -3,7 +3,7 @@
 @mixin theme {
 	--color-primary-h: var(--prim-color-primary-h);
 	--color-primary-s: var(--prim-color-primary-s);
-	--color-primary-l: 68%;
+	--color-primary-l: 60%;
 
 	// Primary tokens
 
@@ -41,9 +41,9 @@
 	--color-danger-tint-2: var(--prim-color-alt-c-tint-450);
 
 	// Text
-	--color-text-dark: var(--prim-gray-740);
-	--color-text-base: var(--prim-gray-540);
-	--color-text-light: var(--prim-gray-420);
+	--color-text-dark: #fefefe; //var(--prim-gray-740);
+	--color-text-base: #bdbdbd; //var(--prim-gray-540);
+	--color-text-light: #9a9a9a; //var(--prim-gray-420);
 	--color-text-lighter: var(--prim-gray-120);
 	--color-text-xlight: var(--prim-gray-0);
 	--color-text-danger: var(--prim-color-alt-c);

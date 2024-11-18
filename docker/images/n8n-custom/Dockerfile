@@ -66,5 +66,5 @@ RUN \
 RUN apk add --no-cache --update openssh sudo shadow bash
 
 ENV SHELL /bin/sh
-USER node
+#USER node
 ENTRYPOINT ["tini", "--", "/docker-entrypoint.sh"]
